@@ -145,13 +145,10 @@ def make_togetoge(yzs: VertYZ, rate):
         if nexts:
             vert.co += get_vector(*nexts)
 
-    def in_range(start):
+    for start in [0, 1]:
         for iy in range(start, yzs.get_size_y(), 2):
             for iz in range(start, yzs.get_size_z(), 2):
                 move_vertex(iy, iz)
-
-    in_range(0)
-    in_range(1)
 
 
 # Start
