@@ -162,7 +162,7 @@ bm = bmesh.from_edit_mesh(obj.data)
 
 yzs = create_verts(bm, 3)
 create_triangle_faces(yzs)
-make_togetoge(yzs, 0.5)
+make_togetoge(yzs, -0.5)
 
 # Finish
 bpy.context.view_layer.update()
