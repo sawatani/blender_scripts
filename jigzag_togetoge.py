@@ -1,5 +1,5 @@
 """
-表面にジグザグの折り目を入れる。
+表面にジグザグの折り目を入れて、頂点を交互に持ち上げてトゲトゲにする。
 
 X軸を固定した平面として、横と縦に Z, Y 軸とする。
 複数の面がY方向に連なっている状態を前提としている。
@@ -129,8 +129,6 @@ def make_togetoge(yzs: VertYZ, rate):
     VertYZ の頂点をトゲトゲになるようにX,Y軸の法線方向に動かす。
     動かす大きさは {両隣の頂点の距離} * rate で指定される。
     """
-    ny = yzs.get_size_y()
-    nz = yzs.get_size_z()
 
     def get_vector(vert1, vert2):
         dx = vert1.co[0] - vert2.co[0]
