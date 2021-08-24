@@ -149,16 +149,15 @@ def make_togetoge(yzs: VertYZ, rate):
                 move_vertex(iy, iz)
 
 
-# Start
 obj = bpy.context.active_object
 print(f"Starting with: {obj}")
-bpy.ops.object.mode_set(mode="EDIT")
-bm = bmesh.from_edit_mesh(obj.data)
+try:
+    bpy.ops.object.mode_set(mode="EDIT")
+    bm = bmesh.from_edit_mesh(obj.data)
 
-yzs = create_verts(bm, 3)
-create_triangle_faces(yzs)
-make_togetoge(yzs, -0.5)
-
-# Finish
-bpy.context.view_layer.update()
-bmesh.update_edit_mesh(obj.data)
+    yzs = create_verts(bm, 3)
+    create_triangle_faces(yzs)
+    make_togetoge(yzs, -0.5)
+finally:
+    bpy.context.view_layer.update()
+    bmesh.update_edit_mesh(obj.data)
